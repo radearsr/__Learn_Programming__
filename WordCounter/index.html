@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Word Counter</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="navbar-logo">
+          <svg
+            class="icon-logo"
+            width="48px"
+            height="32px"
+            viewBox="0 0 48 32"
+            version="1.1"
+            xmlns=""
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <title>Artboard</title>
+            <desc>Created with Sketch.</desc>
+            <defs></defs>
+            <g
+              id="Artboard"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g id="Group" transform="translate(5.000000, 4.000000)">
+                <rect
+                  id="Rectangle-2"
+                  fill="#4DDA9E"
+                  transform="translate(14.598076, 12.892305) rotate(30.000000) translate(-14.598076, -12.892305) "
+                  x="11.5980762"
+                  y="0.892304845"
+                  width="6"
+                  height="24"
+                  rx="3"
+                ></rect>
+                <rect
+                  id="Rectangle-2-Copy-2"
+                  fill="#5ED6E3"
+                  transform="translate(5.408494, 6.145354) rotate(30.000000) translate(-5.408494, -6.145354) "
+                  x="2.40849365"
+                  y="1.64535393"
+                  width="6"
+                  height="9"
+                  rx="3"
+                ></rect>
+                <rect
+                  id="Rectangle-2-Copy"
+                  fill="#ADD654"
+                  transform="translate(28.310417, 12.547278) rotate(30.000000) translate(-28.310417, -12.547278) "
+                  x="25.3104174"
+                  y="0.547277717"
+                  width="6"
+                  height="24"
+                  rx="3"
+                ></rect>
+              </g>
+            </g>
+          </svg>
+          <h1>Word Counter</h1>
+          <p class="navbar-logo-child">+ GRAMMAR CHECK</p>
+        </div>
+        <ul>
+          <li><a href="">Blog</a></li>
+          <li><a href="">Grammar</a></li>
+          <li><a href="">FAQ</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <header class="home-header">
+        <div class="home-header-panel">
+          <div class="settings">
+            <ul class="setting-list">
+              <li class="setting-item">
+                <img
+                  class="setting-icon"
+                  src="assets/icon/floppy-disk.png"
+                  alt=""
+                />
+                <ul class="setting-other-list set__save">
+                  <li class="setting-other-item">
+                    <p>Auto save</p>
+                  </li>
+                </ul>
+              </li>
+              <li class="setting-item">
+                <img class="setting-icon" src="assets/icon/find.png" alt="" />
+                <ul class="setting-other-list set__grammar-check">
+                  <li class="setting-other-item">
+                    <p>Grammar Check <b>OFF</b></p>
+                  </li>
+                </ul>
+              </li>
+              <li class="setting-item" id="clearAll">
+                <img
+                  class="setting-icon"
+                  src="assets/icon/recycle.png"
+                  alt=""
+                />
+
+                <ul class="setting-other-list">
+                  <li class="setting-other-item"><p>Clear All Text</p></li>
+                </ul>
+              </li>
+              <li class="setting-item">
+                <img
+                  class="setting-icon"
+                  src="assets/icon/font-size.png"
+                  alt=""
+                />
+                <ul class="setting-other-list set__font-size">
+                  <li class="setting-other-item active">
+                    <img
+                      class="setting-icon-item"
+                      src="assets/icon/font-size.png"
+                      alt=""
+                    />
+                  </li>
+                  <li class="setting-other-item">
+                    <img
+                      class="setting-icon-item"
+                      src="assets/icon/font-size.png"
+                      alt=""
+                    />
+                  </li>
+                  <li class="setting-other-item">
+                    <img
+                      class="setting-icon-item"
+                      src="assets/icon/font-size.png"
+                      alt=""
+                    />
+                  </li>
+                </ul>
+              </li>
+              <li class="setting-item">
+                <img
+                  class="setting-icon last-icon"
+                  src="assets/icon/font.png"
+                  alt=""
+                />
+                <ul class="setting-other-list set__font-weight">
+                  <li class="setting-other-item active">
+                    <img
+                      class="setting-icon-item"
+                      src="assets/icon/font.png"
+                      alt=""
+                    />
+                  </li>
+                  <li class="setting-other-item">
+                    <img
+                      class="setting-icon-item"
+                      src="assets/icon/font.png"
+                      alt=""
+                    />
+                  </li>
+                  <li class="setting-other-item">
+                    <img
+                      class="setting-icon-item"
+                      src="assets/icon/font.png"
+                      alt=""
+                    />
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="editor">
+            <div class="header-editor">
+              <div class="header-editor-item">
+                <div class="group-item">
+                  <h4 class="group-title">WORDS</h4>
+                  <p class="result-num" id="word">0</p>
+                </div>
+              </div>
+
+              <div class="header-editor-item">
+                <div class="group-item">
+                  <h4 class="group-title">CHARACTERS</h4>
+                  <p class="result-num" id="character">0</p>
+                </div>
+              </div>
+
+              <div class="group-list-block">
+                <div class="group-item-block">
+                  <h4 class="group-title">FACEBOOK</h4>
+                  <div class="editor-data">
+                    <span class="logo-symbol facebook"></span>
+                    <p class="result-num-block result-fb" id="remainCharFb">
+                      250
+                    </p>
+                  </div>
+                </div>
+
+                <div class="group-item-block">
+                  <h4 class="group-title">TWITTER</h4>
+                  <div class="editor-data">
+                    <span class="logo-symbol twitter"></span>
+                    <p class="result-num-block result-twt" id="remainCharTw">
+                      280
+                    </p>
+                  </div>
+                </div>
+
+                <div class="group-item-block">
+                  <h4 class="group-title">GOOGLE</h4>
+                  <div class="editor-data">
+                    <span class="logo-symbol google"></span>
+                    <p class="result-num-block result-gog" id="remainCharGo">
+                      300
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <textarea
+              class="content-editor"
+              name=""
+              id="text-editor"
+              placeholder="Type or paste your text"
+            ></textarea>
+            <div class="footer-editor">
+              <h1 class="footer-editor-title">Word Counter</h1>
+              <p class="footer-editor-description">
+                Count words, check grammar and improve your writing.
+                <a class="footer-editor-link" href="#">Learn more</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="sidebar">
+            <header class="sidebar-header">
+              <h3 class="sidebar-title">KEYWORDS</h3>
+              <div class="sidebar-toggle-group">
+                <span class="sidebar-toggle-item">TOP</span>
+                <span class="sidebar-toggle-item">1x</span>
+                <span class="sidebar-toggle-item">2x</span>
+                <span class="sidebar-toggle-item">3x</span>
+              </div>
+            </header>
+          </div>
+        </div>
+      </header>
+
+      <section class="section-blog">
+        <div class="hero-blog">
+          <h3 class="category-blog">LASTEST FROM BLOG</h3>
+          <figure class="wrapper-banner-blog">
+            <img
+              src="assets/img/101-standout-argumentative-essay-topic-ideas.jpg"
+              alt=""
+              class="banner-blog"
+            />
+          </figure>
+          <h2 class="hero-blog-title">
+            101 Standout Argumentative Essay Topic Ideas
+          </h2>
+          <span class="card-author">
+            <span class="author-name">CASEY BROWN</span>
+          </span>
+          <p class="description-blog">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum,
+            consectetur facere! Quisquam mollitia hic aliquid voluptate beatae
+            iste sint quo vero assumenda quis magnam dolores eum quaerat odio
+            delectus earum, inventore amet! Deleniti exercitationem perferendis,
+            accusamus, minus consequatur qui, odio commodi veritatis
+            necessitatibus nam saepe natus nihil? Dolorum commodi accusantium
+            sit. Dolore tempore error impedit labore adipisci dolorum, quis
+            tenetur qui dolor, nobis voluptatem! Velit, ducimus molestiae? Illo,
+            consectetur molestiae?
+          </p>
+        </div>
+
+        <div class="list-blog">
+          <h3 class="category-blog">POPULAR POSTS</h3>
+          <ul>
+            <li class="blog-item">
+              <figure class="wrapper-banner-blog">
+                <img
+                  src="assets/img/how-to-write-essay-titles-and-headers.jpg"
+                  alt=""
+                  class="mini-banner-blog"
+                />
+              </figure>
+              <div class="card-text">
+                <h4 class="card-title-blog">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h4>
+                <span class="card-author">
+                  <span class="author-name">CASEY BROWN</span>
+                </span>
+              </div>
+            </li>
+            <li class="blog-item">
+              <figure class="wrapper-banner-blog">
+                <img
+                  src="assets/img/writing-a-standout-college-admissions-essay.jpg"
+                  alt=""
+                  class="mini-banner-blog"
+                />
+              </figure>
+              <div class="card-text">
+                <h4 class="card-title-blog">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h4>
+                <span class="card-author">
+                  <span class="author-name">CASEY BROWN</span>
+                </span>
+              </div>
+            </li>
+            <li class="blog-item">
+              <figure class="wrapper-banner-blog">
+                <img
+                  src="assets/img/common-writing-mistakes-that-could-ruin-your-essay.jpg"
+                  alt=""
+                  class="mini-banner-blog"
+                />
+              </figure>
+              <div class="card-text">
+                <h4 class="card-title-blog">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h4>
+                <span class="card-author">
+                  <span class="author-name">CASEY BROWN</span>
+                </span>
+              </div>
+            </li>
+            <li class="blog-item">
+              <figure class="wrapper-banner-blog">
+                <img
+                  src="assets/img/100-narrative-essay-topics-for-your-next-assignment.jpg"
+                  alt=""
+                  class="mini-banner-blog"
+                />
+              </figure>
+              <div class="card-text">
+                <h4 class="card-title-blog">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h4>
+                <span class="card-author">
+                  <span class="author-name">CASEY BROWN</span>
+                </span>
+              </div>
+            </li>
+            <li class="blog-item">
+              <div class="readmore">
+                <h4 class="readmore-title">Word Counter Blog</h4>
+                <p class="readmore-description">
+                  Check out our blog for fresh posts, how-tos and just about
+                  everything word count related you could possibly imagine (and
+                  even some you probably couldn't).
+                </p>
+                <a class="readmore-link" href="">KEEP READING →</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section-improve">
+        <h3 class="color-title-improve">improve your grammar</h3>
+        <div class="improve-content-list">
+          <div class="improve-content-item">
+            <h4 class="improve-content-title">Affect vs. Effect</h4>
+            <span class="card-author">
+              <span class="author-name">Riley Thompson Manning</span>
+            </span>
+            <p class="description-blog">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              libero quaerat officiis eligendi totam hic amet qui a tempore
+              iusto eaque tenetur dicta, placeat illo?
+            </p>
+          </div>
+          <div class="improve-content-item">
+            <h4 class="improve-content-title">Affect vs. Effect</h4>
+            <span class="card-author">
+              <span class="author-name">Riley Thompson Manning</span>
+            </span>
+            <p class="description-blog">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              libero quaerat officiis eligendi totam hic amet qui a tempore
+              iusto eaque tenetur dicta, placeat illo?
+            </p>
+          </div>
+          <div class="improve-content-item">
+            <h4 class="improve-content-title">Affect vs. Effect</h4>
+            <span class="card-author">
+              <span class="author-name">Riley Thompson Manning</span>
+            </span>
+            <p class="description-blog">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              libero quaerat officiis eligendi totam hic amet qui a tempore
+              iusto eaque tenetur dicta, placeat illo?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-subscription">
+        <div class="subscription-content">
+          <div class="title-subscription">
+            <h3>Get the latest in your inbox.</h3>
+            <p>
+              Signup to be the first to know when we publish updates,
+              best-practices, tips and tricks.
+            </p>
+          </div>
+          <div class="input-column-subscription">
+            <input
+              type="text"
+              class="input-email"
+              placeholder="Enter your email..."
+            />
+            <input type="button" value="SUBSCRIBE →" class="submit-email" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section-question">
+        <h3 class="color-title-question">COMMON QUESTIONS</h3>
+        <div class="question-content-list">
+          <div class="question-content-item">
+            <h4 class="question-content-title">
+              How Many Pages is 3000 Words?
+            </h4>
+            <span class="card-author">
+              <span class="author-name">Allison Dexter</span>
+            </span>
+            <p class="description-blog">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              libero quaerat officiis eligendi totam hic amet qui a tempore
+              iusto eaque tenetur dicta, placeat illo?
+            </p>
+          </div>
+          <div class="question-content-item">
+            <h4 class="question-content-title">
+              How Many Pages is 3000 Words?
+            </h4>
+            <span class="card-author">
+              <span class="author-name">Allison Dexter</span>
+            </span>
+            <p class="description-blog">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              libero quaerat officiis eligendi totam hic amet qui a tempore
+              iusto eaque tenetur dicta, placeat illo?
+            </p>
+          </div>
+          <div class="question-content-item">
+            <h4 class="question-content-title">
+              How Many Pages is 3000 Words?
+            </h4>
+            <span class="card-author">
+              <span class="author-name">Allison Dexter</span>
+            </span>
+            <p class="description-blog">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              libero quaerat officiis eligendi totam hic amet qui a tempore
+              iusto eaque tenetur dicta, placeat illo?
+            </p>
+          </div>
+          <div class="question-content-item">
+            <h4 class="question-content-title">
+              How Many Pages is 3000 Words?
+            </h4>
+            <span class="card-author">
+              <span class="author-name">Allison Dexter</span>
+            </span>
+            <p class="description-blog">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              libero quaerat officiis eligendi totam hic amet qui a tempore
+              iusto eaque tenetur dicta, placeat illo?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-about">
+        <h2 class="about-title">About Word Counter</h2>
+
+        <div class="about-description">
+          <p class="about-description-item">
+            You can also use Word Counter to track your text length against
+            common web standards like Twitter's tweet character count (140),
+            Google's meta description (300), and Facebook's average post display
+            length (~250). If your text is longer than 360 characters the
+            counter will show you the number of sentences, paragraphs and pages
+            instead; useful metrics for blog posts, articles, papers, essays,
+            dissertations and other long-form content.
+          </p>
+          <p class="about-description-item">
+            You can also use Word Counter to track your text length against
+            common web standards like Twitter's tweet character count (140),
+            Google's meta description (300), and Facebook's average post display
+            length (~250). If your text is longer than 360 characters the
+            counter will show you the number of sentences, paragraphs and pages
+            instead; useful metrics for blog posts, articles, papers, essays,
+            dissertations and other long-form content.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-block-upper">
+        <div class="footer-group">
+          <svg
+            class="icon-logo"
+            width="48px"
+            height="32px"
+            viewBox="0 0 48 32"
+            version="1.1"
+            xmlns=""
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <title>Artboard</title>
+            <desc>Created with Sketch.</desc>
+            <defs></defs>
+            <g
+              id="Artboard"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g id="Group" transform="translate(5.000000, 4.000000)">
+                <rect
+                  id="Rectangle-2"
+                  fill="#4DDA9E"
+                  transform="translate(14.598076, 12.892305) rotate(30.000000) translate(-14.598076, -12.892305) "
+                  x="11.5980762"
+                  y="0.892304845"
+                  width="6"
+                  height="24"
+                  rx="3"
+                ></rect>
+                <rect
+                  id="Rectangle-2-Copy-2"
+                  fill="#5ED6E3"
+                  transform="translate(5.408494, 6.145354) rotate(30.000000) translate(-5.408494, -6.145354) "
+                  x="2.40849365"
+                  y="1.64535393"
+                  width="6"
+                  height="9"
+                  rx="3"
+                ></rect>
+                <rect
+                  id="Rectangle-2-Copy"
+                  fill="#ADD654"
+                  transform="translate(28.310417, 12.547278) rotate(30.000000) translate(-28.310417, -12.547278) "
+                  x="25.3104174"
+                  y="0.547277717"
+                  width="6"
+                  height="24"
+                  rx="3"
+                ></rect>
+              </g>
+            </g>
+          </svg>
+          <h4>Word Counter</h4>
+        </div>
+        <a
+          href="https://wasai.co"
+          class="footer__logo"
+          title="Wasai — Digital Ventures"
+          target="_blank"
+          rel="noopener"
+          ><span>Wa</span><span>sai</span></a
+        >
+      </div>
+      <div class="footer-block-lower">
+        <div class="footer-group-about">
+          <h5 class="footer-title-group">ABOUT</h5>
+          <p class="footer-about-description">
+            Word Counter is a clean and simple web interface for counting words,
+            characters and pages, checking grammar and spelling, keyword density
+            and more. Why? At Wasai we are committed to building awesome digital
+            products for all.<a href="#">Contact Us</a>
+          </p>
+        </div>
+        <div class="footer-group-sitemap">
+          <h5 class="footer-title-group">SITEMAP</h5>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Grammar</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-group-latest">
+          <h5 class="footer-title-group">LATEST POST</h5>
+          <a href="" class="footer-link-readmore">
+            <h6>101 Standout Argumentative Essay Topic Ideas</h6>
+            <span>↪ Read more</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
