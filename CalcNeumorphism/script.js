@@ -2,7 +2,7 @@ const calcConfig = {
   firstNumber: "0",
   secondNumber: "0",
   setOperator: false,
-  setDoubleOperator: false,
+  multipleOperator: false,
   operatorInSet: false,
   resultOperation: null,
   operatorType: null,
@@ -23,7 +23,7 @@ const clear = () => {
   calcConfig.firstNumber = "0";
   calcConfig.secondNumber = "0";
   calcConfig.setOperator = false;
-  calcConfig.setDoubleOperator = false;
+  calcConfig.multipleOperator = false;
   calcConfig.operatorType = "";
   calcConfig.calculatorDisplay = "";
 };
@@ -54,8 +54,19 @@ const calculation = (firstNum, secondNum, operator) => {
   }
 };
 
-const handleDisplayNumber = (propertyName, element) => {
-  if (
+const handleDisplayNumber = (propertyName, element, multiOperator = false) => {
+  if (multiOperator == true && element.classList.contains("negative") == true) {
+    const numberForNegative = calcConfig[propertyName].split(" ");
+    numberForNegative[numberForNegative.length - 1] = convertToNegative(
+      numberForNegative[numberForNegative.length - 1]
+    );
+    calcConfig[propertyName] = numberForNegative.join(" ");
+  } else if (
+    multiOperator == true &&
+    element.classList.contains("negative") != true
+  ) {
+    return (calcConfig[propertyName] += element.innerText);
+  } else if (
     calcConfig[propertyName] != "0" &&
     element.classList.contains("negative")
   ) {
@@ -77,9 +88,21 @@ const handleDisplayNumber = (propertyName, element) => {
 buttons.forEach((button) => {
   button.addEventListener("click", function () {
     calcConfig.operatorInSet = false;
+    if (calcConfig.multipleOperator) {
+      let checkValue = calcConfig.calculatorDisplay.split(" ");
+      if (
+        checkValue[checkValue.length - 1] == "" &&
+        this.classList.contains("negative")
+      ) {
+        alert("Tetapkan angka sebelum membuat menjadi negative");
+      } else {
+        handleDisplayNumber(
+          "calculatorDisplay",
+          this,
+          calcConfig.multipleOperator
+        );
+      }
 
-    if (calcConfig.setDoubleOperator) {
-      calcConfig.calculatorDisplay += `${this.innerText}`;
       updateDisplay(calcConfig.calculatorDisplay);
     } else {
       if (!calcConfig.setOperator) {
@@ -107,7 +130,7 @@ operators.forEach((operator) => {
     } else {
       calcConfig.operatorInSet = true;
       if (calcConfig.setOperator) {
-        calcConfig.setDoubleOperator = true;
+        calcConfig.multipleOperator = true;
         calcConfig.calculatorDisplay += ` ${this.innerText} `;
         updateDisplay(calcConfig.calculatorDisplay);
       } else {
@@ -129,7 +152,7 @@ buttonResult.addEventListener("click", () => {
   const arrNumber = calcConfig.calculatorDisplay.split(" ");
   const index = arrNumber.length - 1;
   if (arrNumber[index] != "") {
-    if (calcConfig.setDoubleOperator) {
+    if (calcConfig.multipleOperator) {
       for (let i = 0; i < arrNumber.length; i++) {
         if (arrNumber[i] == "x") {
           arrNumber[i] = "*";
