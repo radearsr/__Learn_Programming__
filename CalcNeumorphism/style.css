@@ -43,10 +43,7 @@
 }
 
 .display-calculator,
-.button,
-.clear,
-.result,
-.operator {
+.button {
   border-radius: 12px;
   background: #f3f2f2;
   box-shadow: 7px 7px 13px #bebebe, -7px -7px 13px #ffffff;
@@ -61,10 +58,7 @@
   font-size: 40px;
 }
 
-.button,
-.clear,
-.result,
-.operator {
+.button {
   cursor: pointer;
   width: 25%;
   text-align: center;
