@@ -1,3 +1,6 @@
+const displayCalc = document.querySelector(".display-calculator");
+const buttons = document.querySelectorAll(".button");
+
 const calcConfig = {
   firstNumber: "0",
   secondNumber: "0",
@@ -9,17 +12,11 @@ const calcConfig = {
   calculatorDisplay: null,
 };
 
-const displayCalc = document.querySelector(".display-calculator");
-const buttons = document.querySelectorAll(".button");
-const operators = document.querySelectorAll(".operator");
-const buttonClear = document.querySelector(".clear");
-const buttonResult = document.querySelector(".result");
-
 const updateDisplay = (value) => {
   displayCalc.innerText = value;
 };
 
-const clear = () => {
+const clearAllDisplay = () => {
   calcConfig.firstNumber = "0";
   calcConfig.secondNumber = "0";
   calcConfig.setOperator = false;
@@ -32,7 +29,7 @@ const convertToNegative = (value) => {
   return (value *= -1);
 };
 
-const calculation = (firstNum, secondNum, operator) => {
+const singleCalculation = (firstNum, secondNum, operator) => {
   switch (operator) {
     case "+":
       return firstNum + secondNum;
@@ -85,70 +82,60 @@ const handleDisplayNumber = (propertyName, element, multiOperator = false) => {
   }
 };
 
-buttons.forEach((button) => {
-  button.addEventListener("click", function () {
-    calcConfig.operatorInSet = false;
-    if (calcConfig.multipleOperator) {
-      let checkValue = calcConfig.calculatorDisplay.split(" ");
-      if (
-        checkValue[checkValue.length - 1] == "" &&
-        this.classList.contains("negative")
-      ) {
-        alert("Tetapkan angka sebelum membuat menjadi negative");
-      } else {
-        handleDisplayNumber(
-          "calculatorDisplay",
-          this,
-          calcConfig.multipleOperator
-        );
-      }
-
+const handleDisplayOperator = (element) => {
+  if (calcConfig.operatorInSet) {
+    alert("Anda telah menerapkan operator");
+  } else {
+    calcConfig.operatorInSet = true;
+    if (calcConfig.setOperator) {
+      calcConfig.multipleOperator = true;
+      calcConfig.calculatorDisplay += ` ${element.innerText} `;
       updateDisplay(calcConfig.calculatorDisplay);
     } else {
-      if (!calcConfig.setOperator) {
-        handleDisplayNumber("firstNumber", this);
-        updateDisplay(calcConfig.firstNumber);
-      } else {
-        let checkValue = handleDisplayNumber("secondNumber", this);
-        if (!checkValue) {
-          alert("Tetapkan angka sebelum membuat menjadi negative");
-
-          calcConfig.calculatorDisplay = `${calcConfig.firstNumber} ${calcConfig.operatorType}`;
-        } else {
-          calcConfig.calculatorDisplay = `${calcConfig.firstNumber} ${calcConfig.operatorType} ${calcConfig.secondNumber}`;
-        }
-        updateDisplay(calcConfig.calculatorDisplay);
-      }
+      calcConfig.setOperator = true;
+      calcConfig.operatorType = element.innerText;
+      calcConfig.calculatorDisplay = `${calcConfig.firstNumber} ${calcConfig.operatorType} `;
+      updateDisplay(calcConfig.calculatorDisplay);
     }
-  });
-});
+  }
+};
 
-operators.forEach((operator) => {
-  operator.addEventListener("click", function () {
-    if (calcConfig.operatorInSet) {
-      alert("Anda telah menerapkan operator");
+const handleButtonsNumber = (element) => {
+  if (calcConfig.multipleOperator) {
+    let checkValue = calcConfig.calculatorDisplay.split(" ");
+    if (
+      checkValue[checkValue.length - 1] == "" &&
+      element.classList.contains("negative")
+    ) {
+      alert("Tetapkan angka sebelum membuat menjadi negative");
     } else {
-      calcConfig.operatorInSet = true;
-      if (calcConfig.setOperator) {
-        calcConfig.multipleOperator = true;
-        calcConfig.calculatorDisplay += ` ${this.innerText} `;
-        updateDisplay(calcConfig.calculatorDisplay);
-      } else {
-        calcConfig.setOperator = true;
-        calcConfig.operatorType = this.innerText;
-        calcConfig.calculatorDisplay = `${calcConfig.firstNumber} ${calcConfig.operatorType} `;
-        updateDisplay(calcConfig.calculatorDisplay);
-      }
+      handleDisplayNumber(
+        "calculatorDisplay",
+        element,
+        calcConfig.multipleOperator
+      );
     }
-  });
-});
 
-buttonClear.addEventListener("click", () => {
-  clear();
-  updateDisplay(calcConfig.firstNumber);
-});
+    updateDisplay(calcConfig.calculatorDisplay);
+  } else {
+    if (!calcConfig.setOperator) {
+      handleDisplayNumber("firstNumber", element);
+      updateDisplay(calcConfig.firstNumber);
+    } else {
+      let checkValue = handleDisplayNumber("secondNumber", element);
+      if (!checkValue) {
+        alert("Tetapkan angka sebelum membuat menjadi negative");
 
-buttonResult.addEventListener("click", () => {
+        calcConfig.calculatorDisplay = `${calcConfig.firstNumber} ${calcConfig.operatorType}`;
+      } else {
+        calcConfig.calculatorDisplay = `${calcConfig.firstNumber} ${calcConfig.operatorType} ${calcConfig.secondNumber}`;
+      }
+      updateDisplay(calcConfig.calculatorDisplay);
+    }
+  }
+};
+
+const resultCalculation = () => {
   const arrNumber = calcConfig.calculatorDisplay.split(" ");
   const index = arrNumber.length - 1;
   if (arrNumber[index] != "") {
@@ -160,17 +147,33 @@ buttonResult.addEventListener("click", () => {
       }
       calcConfig.resultOperation = eval(arrNumber.join(" "));
     } else {
-      calcConfig.resultOperation = calculation(
+      calcConfig.resultOperation = singleCalculation(
         parseInt(calcConfig.firstNumber),
         parseInt(calcConfig.secondNumber),
         calcConfig.operatorType
       );
     }
-    clear();
+    clearAllDisplay();
     calcConfig.firstNumber = calcConfig.resultOperation;
   } else {
     alert("Maaf hasil tidak dapat ditampilkan, silahkan cek inputan anda");
     calcConfig.resultOperation = `${calcConfig.calculatorDisplay}`;
   }
-  updateDisplay(calcConfig.resultOperation);
+};
+
+buttons.forEach((button) => {
+  button.addEventListener("click", function () {
+    if (this.classList.contains("operator")) {
+      handleDisplayOperator(this);
+    } else if (this.classList.contains("clear")) {
+      clearAllDisplay();
+      updateDisplay(calcConfig.firstNumber);
+    } else if (this.classList.contains("result")) {
+      resultCalculation();
+      updateDisplay(calcConfig.resultOperation);
+    } else {
+      calcConfig.operatorInSet = false;
+      handleButtonsNumber(this);
+    }
+  });
 });
