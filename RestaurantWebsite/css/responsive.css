@@ -1,0 +1,213 @@
+@media (max-width: 991.98px) {
+  header {
+    padding: 0.5rem 1.5rem;
+  }
+
+  header .navbar .navbar-item {
+    padding: 0.3rem 0.5rem;
+  }
+
+  #search .search-group input {
+    width: 60%;
+  }
+
+  #home .container .wrapper-our-special-dish .content-text .title {
+    font-size: 1.5rem;
+  }
+
+  #home .container .wrapper-our-special-dish .content-text .title-special-dish {
+    font-size: 3.2rem;
+  }
+
+  #home
+    .container
+    .wrapper-our-special-dish
+    .content-text
+    .description-special-dish {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+  }
+
+  #home ~ section,
+  footer {
+    padding: 1rem;
+  }
+
+  #dishes .dishes .container-box .wrapper-box {
+    margin: 0.4rem;
+    width: 31.8%;
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  #dishes .dishes .container-box > .wrapper-box img {
+    height: 8rem;
+  }
+
+  #menu .container-box > .wrapper-box {
+    width: 45%;
+  }
+
+  #order form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  header .navbar {
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    padding: 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  header .navbar .navbar-item {
+    font-size: 1.2rem;
+    display: block;
+    padding: 0.8rem 1rem;
+    margin: 0.5rem 0;
+    background-color: var(--light-color);
+  }
+
+  header .icons i#menu-bars {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0.8rem 1rem;
+  }
+
+  #search .search-group input {
+    width: 80%;
+  }
+
+  #search .search-group i {
+    margin-left: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  #search i#close {
+    font-size: 3rem;
+  }
+
+  #home .container .wrapper-our-special-dish {
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  #home .container .wrapper-our-special-dish .content-text .title {
+    margin-top: 4rem;
+  }
+
+  #home
+    .container
+    .wrapper-our-special-dish
+    .content-text
+    .description-special-dish {
+    margin: 0.5rem 0;
+  }
+
+  #home .container .wrapper-our-special-dish .img-product {
+    width: 70%;
+    display: block;
+  }
+
+  .btn {
+    padding: 0.6rem 0.4rem;
+  }
+
+  #dishes .dishes .container-box {
+    padding: 1rem;
+    justify-content: center;
+  }
+
+  #dishes .dishes .container-box .wrapper-box {
+    margin: 0.4rem;
+    width: 48%;
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  .price {
+    display: inline-block;
+  }
+
+  #about .about__contents {
+    flex-wrap: wrap;
+  }
+  #about .about__contents .image {
+    width: 100%;
+  }
+  #about .about__contents .about__components {
+    width: 100%;
+  }
+
+  #menu .container-box > .wrapper-box {
+    width: 45%;
+  }
+
+  #order form {
+    width: 100%;
+  }
+
+  footer > .container-footer {
+    flex-wrap: wrap;
+  }
+
+  footer > .container-footer > .footer-box {
+    width: 45%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #home .container .wrapper-our-special-dish .img-product {
+    width: 90%;
+    display: block;
+  }
+
+  #dishes .dishes .container-box {
+    padding: 1rem;
+    justify-content: center;
+  }
+
+  #dishes .dishes .container-box .wrapper-box {
+    margin: 0.4rem;
+    width: 95%;
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  #dishes .dishes .container-box .wrapper-box .img-popular-dishes {
+    width: 60%;
+    height: 10rem;
+    margin: 1rem auto;
+  }
+
+  #menu .container-box > .wrapper-box {
+    width: 95%;
+  }
+
+  #order form > .input-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+
+  #order form > .input-box > .input-group {
+    width: 100%;
+  }
+
+  footer > .container-footer > .footer-box {
+    width: 100%;
+  }
+
+  footer .credit {
+    font-size: 1.2rem;
+  }
+}
