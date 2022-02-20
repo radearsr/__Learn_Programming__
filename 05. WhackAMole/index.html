@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <title>Whack A Mole</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <div class="home page__game active">
+      <h1 class="title__game">whack a mole</h1>
+      <h2 class="score__game best__score">your best score<span>30</span></h2>
+      <button class="btn btn-start" type="button">start game</button>
+    </div>
+
+    <div class="gameover page__game">
+      <h1 class="title__game">game over</h1>
+      <h2 class="score__game result__score">
+        current result score<span>30</span>
+      </h2>
+      <button class="btn btn-restart" type="button">restart</button>
+      <button class="btn btn-home">back to home</button>
+    </div>
+
+    <h2 class="score__board">score<span>0</span></h2>
+    <h3 class="remaining__time">Remaining Time <span>10</span></h3>
+    <div class="container">
+      <div class="dirt-group">
+        <div class="dirt">
+          <div class="mole"></div>
+        </div>
+        <div class="dirt">
+          <div class="mole"></div>
+        </div>
+        <div class="dirt">
+          <div class="mole"></div>
+        </div>
+      </div>
+      <div class="dirt-group">
+        <div class="dirt">
+          <div class="mole"></div>
+        </div>
+        <div class="dirt">
+          <div class="mole"></div>
+        </div>
+        <div class="dirt">
+          <div class="mole"></div>
+        </div>
+      </div>
+      <div class="dirt-group">
+        <div class="dirt">
+          <div class="mole"></div>
+        </div>
+        <div class="dirt">
+          <div class="mole"></div>
+        </div>
+        <div class="dirt">
+          <div class="mole"></div>
+        </div>
+      </div>
+    </div>
+
+    <audio src="audio/Pop.mp3" id="sound"></audio>
+    <script src="js/script.js"></script>
+  </body>
+</html>
