@@ -1,0 +1,164 @@
+@media (max-width: 991.98px) {
+  .container {
+    margin: 0 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .navbar .navbar-list .navbar-item {
+    padding: 1rem 0.5rem;
+  }
+
+  .jumbotron .jumbotron-title {
+    font-size: 4rem;
+    width: 46rem;
+  }
+
+  .info-panel {
+    padding: 1rem 0.5rem;
+    width: 46rem;
+  }
+
+  .info-panel .info-panel-item img {
+    width: 5rem;
+  }
+
+  .info-panel .info-panel-item .info-about h3 {
+    text-transform: uppercase;
+    padding-bottom: 0.5rem;
+  }
+
+  .info-panel .info-panel-item .info-about {
+    padding-left: 0.5rem;
+  }
+
+  .workspace .workspace-img {
+    width: 25rem;
+  }
+
+  .workspace .workspace-about {
+    width: 28rem;
+    padding-left: 1rem;
+  }
+
+  .workspace .workspace-about h3 {
+    font-size: 3rem;
+  }
+
+  .workspace .workspace-about p {
+    width: 20rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar.nav-collapse {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .container {
+    margin: 0 2rem;
+    padding: 0 1rem;
+  }
+
+  .navbar .navbar-list {
+    top: 100%;
+    right: 0;
+    left: 0;
+    padding: 1rem 3rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    flex-direction: column;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: 0.5s;
+  }
+  .navbar .navbar-list.collapse {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .navbar .navbar-bars {
+    display: flex;
+  }
+
+  .navbar .navbar-list .navbar-item > .nav-link::after {
+    margin: 0;
+  }
+
+  .jumbotron .jumbotron-title {
+    font-size: 3rem;
+    width: 30rem;
+  }
+
+  .info-panel {
+    padding: 1rem;
+    width: 34.8rem;
+    flex-wrap: wrap;
+  }
+
+  .info-panel .info-panel-item {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .info-panel .info-panel-item img {
+    width: 5rem;
+  }
+
+  .workspace > .container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .workspace .workspace-img {
+    width: 30rem;
+    padding-bottom: 4rem;
+  }
+
+  .workspace .workspace-about {
+    text-align: center;
+  }
+
+  .testimoni .quotes {
+    font-size: 1.5rem;
+    width: 30rem;
+  }
+
+  .testimoni-img-group img {
+    width: 4rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .container {
+    margin: 0 1rem;
+    padding: 0;
+  }
+
+  .navbar .navbar-list {
+    padding: 1rem 1.5rem;
+  }
+
+  .jumbotron .jumbotron-title {
+    font-size: 2.5rem;
+    width: 25rem;
+  }
+
+  .info-panel {
+    padding: 0.5rem;
+    width: 25rem;
+    flex-wrap: wrap;
+  }
+
+  .workspace .workspace-img {
+    width: 25rem;
+    padding-bottom: 2rem;
+  }
+
+  .testimoni .quotes {
+    font-size: 1.2rem;
+    width: 23rem;
+  }
+
+  .testimoni-img-group img {
+    width: 3rem;
+  }
+}
