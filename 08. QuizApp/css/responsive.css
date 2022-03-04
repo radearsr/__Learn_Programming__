@@ -1,0 +1,24 @@
+@media (max-width: 767.98px) {
+  main > .container {
+    padding: 1rem;
+  }
+  main > .container .wrapper-options {
+    gap: 1rem;
+  }
+  main > .container .wrapper-options .option {
+    flex-basis: 50%;
+  }
+  .toggle-window {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .container .question {
+    font-size: 1.2rem;
+  }
+
+  main > .container .wrapper-options .option {
+    font-size: 1.2rem;
+  }
+}

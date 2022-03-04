@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- Header Question -->
+    <header>
+      <span class="remaining-time d-none"></span>
+      <p class="bg-black question-number">
+        <span id="current-question"></span>/<span id="total-question"></span>
+      </p>
+      <p class="bg-black point">
+        <span id="current-point"></span><span class="logo-point"></span>
+      </p>
+      <div class="toggle-window fullscreen"></div>
+      <div class="toggle-window exit-fullscreen d-none"></div>
+    </header>
+    <!-- Akhir Header Question -->
+
+    <main>
+      <!-- Question Page -->
+      <div class="container hide">
+        <h1 class="question"></h1>
+        <span class="banner-end">QUIZ END</span>
+        <div class="wrapper-options"></div>
+      </div>
+      <!-- Akhir Question Page -->
+
+      <!-- Home Page -->
+      <div class="home-page">
+        <h1 class="title">quiz app</h1>
+        <p class="sub-title">
+          web design inspired by
+          <a target="_blank" href="https://quizizz.com">quizizz.com</a> powered
+          by radearsr
+        </p>
+        <div class="card">
+          <button class="btn btn-start"><span></span>start</button>
+          <p>settings</p>
+          <div class="settings-group">
+            <label for="timer" class="toggle-checkbox timer">
+              <span></span>
+              timer
+              <input type="checkbox" name="" id="timer" />
+              <div class="toggle">
+                <span class="circle"></span>
+              </div>
+            </label>
+            <label for="music" class="toggle-checkbox music">
+              <span></span>
+              music
+              <input type="checkbox" name="" id="music" />
+              <div class="toggle">
+                <span class="circle"></span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- Akhir Home Page -->
+
+      <!-- Page End -->
+      <div class="end-page">
+        <div class="wrapper-end-page">
+          <h1>summary</h1>
+          <div class="card-end-page accuracy">
+            <h3 class="title-card">accuracy</h3>
+            <div class="range-accuracy">
+              <span class="range-vol range-danger"></span>
+              <span class="range-vol range-success">
+                <span class="toggle-range"></span>
+              </span>
+            </div>
+          </div>
+          <div class="card-end-page point-end">
+            <div class="row">
+              <div class="text-content">
+                <h3 class="title-card">score</h3>
+                <p id="total-point"></p>
+              </div>
+              <span></span>
+            </div>
+          </div>
+          <button class="btn btn-retry">play again</button>
+          <h2 class="perform-title">performance stats</h2>
+          <div class="row">
+            <div class="card-end-page perform-detail">
+              <h2 class="result" id="result-correct"></h2>
+              <p class="label-result">correct</p>
+              <span class="icon-result correct"></span>
+            </div>
+            <div class="card-end-page perform-detail">
+              <h2 class="result" id="result-incorrect"></h2>
+              <p class="label-result">incorrect</p>
+              <span class="icon-result incorrect"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Akhir Page End -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="toggle-music">
+        <span class="line active"></span>
+      </div>
+      <p class="toggle-info">Music <span>off</span></p>
+      <div class="alert correct-alert">
+        <div class="progress-bar-list">
+          <div class="progress-bar-item">
+            <span class="first-bar" style="width: 0"></span>
+          </div>
+          <div class="progress-bar-item">
+            <span class="second-bar" style="width: 0"></span>
+          </div>
+        </div>
+        <p>correct</p>
+      </div>
+      <div class="alert incorrect-alert">
+        <div class="progress-bar-list">
+          <div class="progress-bar-item">
+            <span class="first-bar" style="width: 0"></span>
+          </div>
+          <div class="progress-bar-item">
+            <span class="second-bar" style="width: 0"></span>
+          </div>
+        </div>
+        <p>incorrect</p>
+      </div>
+    </footer>
+    <audio id="audio">
+      <source src="audio/backsound.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Akhir Footer -->
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
