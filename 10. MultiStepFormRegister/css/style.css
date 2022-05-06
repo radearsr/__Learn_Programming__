@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  color: rgb(75, 123, 229);
+  text-align: center;
+  padding: 1rem;
+  font-size: 3rem;
+  text-shadow: 1px 1px white;
+}
+
+.progress-bar {
+  max-width: 700px;
+  position: relative;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.progress-bar .step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-bar .step:nth-child(2)::after,
+.progress-bar .step:nth-child(3)::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 25%;
+  height: 0.2rem;
+  background-color: white;
+}
+.progress-bar .step:nth-child(2)::after {
+  width: 34.3%;
+  left: 11.4%;
+}
+.progress-bar .step:nth-child(3)::after {
+  width: 36.5%;
+  right: 13.4%;
+}
+
+.progress-bar .step.active:nth-child(2)::after,
+.progress-bar .step.active:nth-child(3)::after,
+.progress-bar .step.active > .step-num {
+  background-color: rgb(75, 123, 229);
+}
+
+.progress-bar .step.active > .step-num {
+  color: white;
+}
+
+.progress-bar .step > .step-num {
+  text-align: center;
+  display: block;
+  background-color: white;
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+  height: 2rem;
+  width: 2rem;
+}
+
+.progress-bar .step .step-label {
+  color: rgb(238, 238, 238);
+}
+
+.container {
+  background: rgb(85, 52, 165);
+  background-image: -webkit-linear-gradient(
+    70deg,
+    rgba(85, 52, 165, 1) 50%,
+    rgba(111, 223, 223, 1) 50%
+  );
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.card {
+  max-width: 450px;
+  height: 500px;
+  margin: 2rem auto 0;
+  padding: 1rem;
+  background-color: rgb(247, 247, 247);
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 1px rgba(122, 122, 122, 0.75);
+  display: none;
+}
+
+.card-header {
+  text-align: center;
+}
+
+.card-header h1 {
+  font-size: 2rem;
+  color: rgb(54, 54, 54);
+}
+
+.card-header p {
+  font-size: 1.2rem;
+  color: rgb(124, 124, 124);
+}
+
+.card-body {
+  margin: 1rem 0;
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.input-group .label-input {
+  display: block;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.input-group .form-control {
+  background-color: rgb(247, 247, 247);
+  width: 100%;
+  padding: 0.4rem 0.2rem;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid rgb(189, 189, 189);
+}
+
+.input-group .form-control:focus {
+  outline: none;
+  border-bottom: 1px solid rgb(85, 52, 165);
+}
+
+.input-group.password {
+  position: relative;
+}
+
+.input-group.password .icon {
+  display: block;
+  position: absolute;
+  width: 1.5rem;
+  height: 1rem;
+  background-position: center;
+  background-size: cover;
+  right: 0;
+  top: 40%;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.input-group.password .icon.hidden {
+  background-image: url("../icon/hidden.png");
+}
+
+.input-group.password .icon.view {
+  background-image: url("../icon/view.png");
+}
+
+.card-footer {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: block;
+  padding: 0.6rem;
+  width: 6rem;
+  margin: 1rem auto;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.btn-next {
+  background-color: rgb(75, 123, 229);
+}
+
+.btn-submit {
+  background-color: rgb(75, 229, 96);
+}
+
+.btn-prev {
+  border: 1px solid red;
+  background-color: transparent;
+  color: red;
+}
+
+/* Animation */
+.card.animation-next {
+  display: block;
+  animation: 200ms ease-in-out 1 forwards slideNext;
+}
+
+.card.animation-prev {
+  display: block;
+  animation: 200ms ease-in-out 1 forwards slidePrev;
+}
+
+.card.active {
+  display: block;
+}
+
+.card.hide {
+  animation: 300ms ease-in-out 1 forwards fade;
+  display: block;
+}
+
+@keyframes slideNext {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes slidePrev {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .progress-bar .step:nth-child(2)::after {
+    width: 28.2%;
+    left: 15.8%;
+  }
+  .progress-bar .step:nth-child(3)::after {
+    width: 31.5%;
+    right: 18.4%;
+  }
+}

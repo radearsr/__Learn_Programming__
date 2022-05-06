@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Multi Step Form Register</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Multi Step Form Register</h1>
+
+      <!-- Proggress Bar -->
+      <div class="progress-bar">
+        <div class="step active">
+          <span class="step-num">1</span>
+          <span class="step-label">Personal Details</span>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <span class="step-label">Social Profiles</span>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <span class="step-label">Setup Your Account</span>
+        </div>
+      </div>
+
+      <!-- Card Personal Details -->
+      <div class="card active">
+        <div class="card-header">
+          <h1>Personal Details</h1>
+          <p>This is step 1</p>
+        </div>
+        <div class="card-body">
+          <div class="input-group">
+            <label for="fName" class="label-input">First Name</label>
+            <input type="text" class="form-control" id="fName" />
+          </div>
+          <div class="input-group">
+            <label for="LName" class="label-input">Last Name</label>
+            <input type="text" class="form-control" id="LName" />
+          </div>
+          <div class="input-group">
+            <label for="date" class="label-input">Date Birthday</label>
+            <input type="date" class="form-control" id="date" />
+          </div>
+          <div class="input-group">
+            <label class="label-input" for="gender">Gender</label>
+            <select id="gender" class="form-control">
+              <option value="" selected disabled>Choose</option>
+              <option value="">Male</option>
+              <option value="">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-next">Next</button>
+        </div>
+      </div>
+
+      <!-- Card Social Profiles -->
+      <div class="card">
+        <div class="card-header">
+          <h1>Social Profiles</h1>
+          <p>This is step 2</p>
+        </div>
+
+        <div class="card-body">
+          <div class="input-group">
+            <label for="fb-url" class="label-input">Facebook</label>
+            <input type="text" id="fb-url" class="form-control" />
+          </div>
+          <div class="input-group">
+            <label for="ig-url" class="label-input">Instagram</label>
+            <input type="text" id="ig-url" class="form-control" />
+          </div>
+          <div class="input-group">
+            <label for="twit-url" class="label-input">Twitter</label>
+            <input type="text" id="twit-url" class="form-control" />
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <button class="btn btn-next">next</button>
+          <button class="btn btn-prev">previous</button>
+        </div>
+      </div>
+
+      <!-- Card Final Setup Account -->
+      <div class="card">
+        <div class="card-header">
+          <h1>Create Your Account</h1>
+          <p>This is final step</p>
+        </div>
+        <div class="card-body">
+          <div class="input-group">
+            <label for="in-email" class="label-input">Email</label>
+            <input type="email" id="in-email" class="form-control" />
+          </div>
+          <div class="input-group password">
+            <label for="in-pass" class="label-input">Password</label>
+            <input type="password" id="in-pass" class="form-control" />
+            <span class="icon hidden"></span>
+          </div>
+          <div class="input-group password">
+            <label for="conf-pass" class="label-input">Confirm Password</label>
+            <input type="password" id="conf-pass" class="form-control" />
+            <span class="icon hidden"></span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-submit">submit</button>
+          <button class="btn btn-prev">previous</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
